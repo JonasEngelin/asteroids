@@ -21,6 +21,7 @@ def main():
         color = (0, 0, 0)
         screen.fill(color)
         ship.draw(screen)
+        ship.update(dt)
         pygame.display.flip()
         dt = ticker.tick(60) / 1000
 
