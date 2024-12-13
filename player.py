@@ -1,9 +1,9 @@
 import pygame
-import circleshape
+from circleshape import CircleShape
 from constants import *
 
 
-class Player(circleshape.CircleShape):
+class Player(CircleShape):
     containers = ()
 
     def __init__(self, x, y):
