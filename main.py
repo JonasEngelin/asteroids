@@ -13,15 +13,23 @@ def main():
     ticker = pygame.time.Clock()
     dt = 0
 
-    ship = player.Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    player.Player.containers = (updatable, drawable)
+
+    player.Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         color = (0, 0, 0)
         screen.fill(color)
-        ship.draw(screen)
-        ship.update(dt)
+        for item in updatable:
+            item.update(dt)
+        for item in drawable:
+            item.draw(screen)
+
         pygame.display.flip()
         dt = ticker.tick(60) / 1000
 
