@@ -45,7 +45,7 @@ def main():
         for asteroid in asteroids:
             for shot_in_air in shots:
                 if asteroid.collision(shot_in_air):
-                    asteroid.kill()
+                    asteroid.split()
                     shot_in_air.kill()
 
             if asteroid.collision(ship):
